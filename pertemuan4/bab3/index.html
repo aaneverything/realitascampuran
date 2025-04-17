@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Pemrosesan Citra Digital Sederhana Part 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 font-sans antialiased">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-semibold text-center text-gray-900 mb-6">Aplikasi Pemrosesan Citra Digital Part 2</h1>
+
+        <!-- Bagian Upload Gambar -->
+        <div class="mb-4">
+            <label for="upload" class="block text-lg font-medium text-gray-700">Pilih gambar untuk diunggah:</label>
+            <input type="file" id="upload" accept="image/*" class="mt-2 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+
+        <!-- Bagian Pilih Operasi -->
+        <div class="mb-4">
+            <label for="operation" class="block text-lg font-medium text-gray-700">Pilih operasi transformasi:</label>
+            <select id="operation" class="mt-2 p-2 border border-gray-300 rounded-md w-full">
+                <option disabled>──────────</option>
+                <option value="translate">Translasi (geser)</option>
+                <option value="scale">Skala</option>
+                <option value="rotate">Rotasi</option>
+                <option value="flipH">Balik horizontal</option>
+                <option value="flipV">Balik vertikal</option>
+            </select>
+        </div>
+
+        <!-- Tombol Proses -->
+        <div class="text-center">
+            <button id="process" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Proses
+            </button>
+            <button id="unduh" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Download
+            </button>
+        </div>
+
+        <!-- Canvas untuk menampilkan gambar -->
+        <div class="mt-6 text-center">
+            <canvas id="canvas" class="border-2 border-gray-300 mx-auto"></canvas>
+        </div>
+
+        <!-- Kontainer untuk hasil channel terpisah -->
+        <div id="channels" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

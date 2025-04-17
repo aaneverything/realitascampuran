@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #444;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        select {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        canvas {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #channels {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                width: 100%;
+            }
+
+            input[type="file"],
+            select,
+            button {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Processing Tool</h1>
+    <div class="container">
+        <input type="file" id="upload" accept="image/*">
+        <label for="operation">Pilih operasi:</label>
+        <select id="operation">
+            <option value="grayscale">Ubah warna RGB - Grayscale</option>
+            <option value="edgeRight">Deteksi garis kanan</option>
+            <option value="edgeTop">Deteksi garis atas</option>
+            <option value="blur">Blur</option>
+            <option value="separate">Pisahkan Kanal RGB</option>
+        </select>
+        <button id="process">Proses</button>
+        <canvas id="canvas"></canvas>
+        <div id="channels"></div>
+        <button id="download">Download</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
