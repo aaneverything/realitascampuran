@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Expression Detection</title>
+    <!-- Added Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4facfe",
+              secondary: "#00f2fe",
+            },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-b from-primary to-secondary font-sans text-gray-800 flex flex-col items-center justify-center p-4"
+  >
+    <!-- App Container with improved spacing and structure -->
+    <div
+      class="max-w-4xl w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-xl shadow-xl p-6 flex flex-col items-center"
+    >
+      <header class="w-full text-center mb-6">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-md"
+        >
+          Face Expression Detection
+        </h1>
+        <p class="text-white text-opacity-90 mt-2 max-w-lg mx-auto">
+          This app detects your facial expressions and shows the corresponding
+          emoji in real-time.
+        </p>
+      </header>
+
+      <!-- Video container with improved styling -->
+      <div
+        class="relative w-full max-w-2xl mx-auto rounded-lg overflow-hidden shadow-lg"
+      >
+        <div class="aspect-w-16 aspect-h-9 bg-gray-900 rounded-lg">
+          <video
+            id="video"
+            class="w-full h-full object-cover"
+            autoplay
+            muted
+          ></video>
+        </div>
+        <!-- Canvas will be appended here by JavaScript -->
+      </div>
+
+      <!-- Emoji display with enhanced visual feedback -->
+      <div
+        class="mt-8 mb-4 bg-white bg-opacity-20 p-4 rounded-full shadow-inner"
+      >
+        <div id="emoji" class="text-6xl md:text-7xl animate-pulse-slow">😐</div>
+      </div>
+
+      <!-- Expression label -->
+      <div id="expressionLabel" class="text-xl text-white font-medium mt-2">
+        Neutral
+      </div>
+
+      <!-- Status indicator -->
+      <div class="mt-6 flex items-center">
+        <div class="h-3 w-3 bg-green-400 rounded-full mr-2 pulse"></div>
+        <span class="text-sm text-white">Detecting expressions</span>
+      </div>
+    </div>
+
+    <!-- Credits and instructions -->
+    <div class="mt-6 text-sm text-white text-opacity-70">
+      <p>
+        Please ensure you are in a well-lit environment for better detection
+      </p>
+    </div>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/face-api.js/dist/face-api.min.js"
+    ></script>
+    <script defer src="app.js"></script>
+  </body>
+</html>
