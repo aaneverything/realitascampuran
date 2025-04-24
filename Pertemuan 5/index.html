@@ -11,41 +11,73 @@
         theme: {
           extend: {
             colors: {
-              primary: "#4facfe",
-              secondary: "#00f2fe",
+              primary: "#FF6B6B",
+              secondary: "#FFE66D",
+              accent: "#4ECDC4",
+              dark: "#292F36",
             },
             animation: {
               "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              wiggle: "wiggle 1s ease-in-out infinite",
+            },
+            keyframes: {
+              wiggle: {
+                "0%, 100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
             },
           },
         },
       };
     </script>
+    <style>
+      .neo-border {
+        border: 4px solid #000;
+        box-shadow: 6px 6px 0 #000;
+      }
+      .neo-button:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 8px 8px 0 #000;
+      }
+      .neo-button:active {
+        transform: translate(0px, 0px);
+        box-shadow: 2px 2px 0 #000;
+      }
+      .pattern-bg {
+        background-image: radial-gradient(#000 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+    </style>
   </head>
-  <body
-    class="min-h-screen bg-gradient-to-b from-primary to-secondary font-sans text-gray-800 flex flex-col items-center justify-center p-4"
-  >
-    <!-- App Container with improved spacing and structure -->
+  <body class="min-h-screen bg-secondary font-sans text-dark p-6 pattern-bg">
+    <!-- App Container with neobrutalism styling -->
     <div
-      class="max-w-4xl w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-xl shadow-xl p-6 flex flex-col items-center"
+      class="max-w-4xl w-full mx-auto bg-white neo-border rounded-none p-6 flex flex-col items-center relative"
     >
-      <header class="w-full text-center mb-6">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-md"
-        >
-          Face Expression Detection
+      <!-- Decorative elements for neobrutalism -->
+      <div
+        class="absolute -top-5 -right-5 w-12 h-12 bg-accent neo-border rounded-full"
+      ></div>
+      <div
+        class="absolute -bottom-3 -left-3 w-8 h-8 bg-primary neo-border"
+      ></div>
+
+      <header class="w-full text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-black text-dark tracking-tight">
+          FACE EXPRESSION DETECTION
         </h1>
-        <p class="text-white text-opacity-90 mt-2 max-w-lg mx-auto">
+        <div class="h-2 w-40 bg-accent mx-auto my-3 neo-border"></div>
+        <p class="text-dark font-medium mt-2 max-w-lg mx-auto">
           This app detects your facial expressions and shows the corresponding
           emoji in real-time.
         </p>
       </header>
 
-      <!-- Video container with improved styling -->
+      <!-- Video container with neobrutalism styling -->
       <div
-        class="relative w-full max-w-2xl mx-auto rounded-lg overflow-hidden shadow-lg"
+        class="relative w-full max-w-2xl mx-auto neo-border bg-white rounded-none overflow-hidden mb-8"
       >
-        <div class="aspect-w-16 aspect-h-9 bg-gray-900 rounded-lg">
+        <div class="aspect-w-16 aspect-h-9 bg-gray-100">
           <video
             id="video"
             class="w-full h-full object-cover"
@@ -56,28 +88,31 @@
         <!-- Canvas will be appended here by JavaScript -->
       </div>
 
-      <!-- Emoji display with enhanced visual feedback -->
-      <div
-        class="mt-8 mb-4 bg-white bg-opacity-20 p-4 rounded-full shadow-inner"
-      >
-        <div id="emoji" class="text-6xl md:text-7xl animate-pulse-slow">😐</div>
+      <!-- Emoji display with neobrutalism styling -->
+      <div class="mt-2 mb-4 bg-accent p-6 rounded-none neo-border">
+        <div id="emoji" class="text-6xl md:text-7xl animate-wiggle">😐</div>
       </div>
 
       <!-- Expression label -->
-      <div id="expressionLabel" class="text-xl text-white font-medium mt-2">
+      <div
+        id="expressionLabel"
+        class="text-xl font-bold mt-2 bg-primary px-4 py-2 neo-border"
+      >
         Neutral
       </div>
 
       <!-- Status indicator -->
-      <div class="mt-6 flex items-center">
-        <div class="h-3 w-3 bg-green-400 rounded-full mr-2 pulse"></div>
-        <span class="text-sm text-white">Detecting expressions</span>
+      <div class="mt-6 flex items-center bg-white neo-border p-2 px-4">
+        <div
+          class="h-4 w-4 bg-accent rounded-none mr-3 animate-pulse-slow"
+        ></div>
+        <span class="text-sm font-bold">DETECTING EXPRESSIONS</span>
       </div>
     </div>
 
     <!-- Credits and instructions -->
-    <div class="mt-6 text-sm text-white text-opacity-70">
-      <p>
+    <div class="mt-8 text-md font-bold text-center">
+      <p class="bg-white inline-block py-2 px-4 neo-border">
         Please ensure you are in a well-lit environment for better detection
       </p>
     </div>
