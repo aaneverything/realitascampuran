@@ -1,0 +1,141 @@
+/* Comic-style animations and effects */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+.wobble-effect {
+  animation: wobble 2s infinite;
+}
+
+/* Comic-style loader */
+.comic-loader {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.comic-loader:before,
+.comic-loader:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  border-top-color: #ff5722;
+}
+
+.comic-loader:before {
+  z-index: 100;
+  animation: spin 1s infinite;
+}
+
+.comic-loader:after {
+  border: 8px solid #ffeb3b;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Toast notification for successful photo capture */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #000;
+  padding: 15px 25px;
+  border: 3px solid #000;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 #000;
+  z-index: 1000;
+  font-family: "Bangers", cursive;
+  font-size: 16px;
+  animation: popIn 0.5s ease-in-out, popOut 0.5s ease-in-out 2s forwards;
+}
+
+.toast:before {
+  content: "POW!";
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: #ff5722;
+  color: #fff;
+  padding: 5px 10px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  transform: rotate(15deg);
+}
+
+@keyframes popIn {
+  0% {
+    transform: translateX(-50%) scale(0);
+  }
+  80% {
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Comic-style photo frame */
+.photo-frame {
+  border: 10px solid #fff;
+  box-shadow: 0 0 0 2px #000, 5px 5px 0 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.photo-frame:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 40px;
+  height: 15px;
+  background: #ff5722;
+  border: 2px solid #000;
+}
